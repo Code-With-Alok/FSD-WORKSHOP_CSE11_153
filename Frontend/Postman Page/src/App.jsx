@@ -3,11 +3,14 @@ import "./App.css";
 
 function App() {
   const [method, setMethod] = useState("GET");
-  const [url, setUrl] = useState("http://localhost:3000/users");
+
+  const [url, setUrl] = useState(
+    "http://localhost:3000/users"
+  );
 
   const [requestBody, setRequestBody] = useState(`{
-  "name": "Riya",
-  "age": 22
+  "name": "Alok Sharan",
+  "age": 20
 }`);
 
   const [response, setResponse] = useState(
@@ -25,8 +28,8 @@ function App() {
         method: method,
       };
 
-      // POST request
-      if (method === "POST") {
+      // POST and PUT requests need JSON body
+      if (method === "POST" || method === "PUT") {
         let parsedBody;
 
         try {
@@ -46,7 +49,7 @@ function App() {
         }
 
         options = {
-          method: "POST",
+          method: method,
           headers: {
             "Content-Type": "application/json",
           },
@@ -54,10 +57,10 @@ function App() {
         };
       }
 
-      // PUT and DELETE will be added later
-      if (method === "PUT" || method === "DELETE") {
+      // DELETE integration will be added next
+      if (method === "DELETE") {
         setResponse(
-          `${method} integration will be added in the next step.`
+          "DELETE integration will be added in the next step."
         );
         return;
       }
@@ -96,6 +99,7 @@ function App() {
   return (
     <div className="app">
       <div className="container">
+
         <h1>API Tester</h1>
 
         <p className="subtitle">
@@ -103,6 +107,7 @@ function App() {
         </p>
 
         <div className="request-bar">
+
           <select
             value={method}
             onChange={(e) => setMethod(e.target.value)}
@@ -126,9 +131,11 @@ function App() {
           >
             {loading ? "Sending..." : "Send"}
           </button>
+
         </div>
 
         <div className="section">
+
           <h2>Request Body</h2>
 
           <textarea
@@ -137,15 +144,19 @@ function App() {
               setRequestBody(e.target.value)
             }
           />
+
         </div>
 
         <div className="section">
+
           <h2>Response</h2>
 
           <pre className="response">
             {response}
           </pre>
+
         </div>
+
       </div>
     </div>
   );
