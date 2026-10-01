@@ -57,14 +57,7 @@ function App() {
         };
       }
 
-      // DELETE integration will be added next
-      if (method === "DELETE") {
-        setResponse(
-          "DELETE integration will be added in the next step."
-        );
-        return;
-      }
-
+      // GET and DELETE do not need request body
       const apiResponse = await fetch(url, options);
 
       const data = await apiResponse.json();
