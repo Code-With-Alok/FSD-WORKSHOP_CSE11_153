@@ -6,8 +6,8 @@ function App() {
   const [url, setUrl] = useState("http://localhost:3000/users");
 
   const [requestBody, setRequestBody] = useState(`{
-  "name": "Alok",
-  "age": 19
+  "name": "Riya",
+  "age": 22
 }`);
 
   const [response, setResponse] = useState(
@@ -17,18 +17,52 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleSend = async () => {
-    if (method !== "GET") {
-      setResponse(
-        `${method} integration will be added in the next step.`
-      );
-      return;
-    }
-
     try {
       setLoading(true);
       setResponse("Sending request...");
 
-      const apiResponse = await fetch(url);
+      let options = {
+        method: method,
+      };
+
+      // POST request
+      if (method === "POST") {
+        let parsedBody;
+
+        try {
+          parsedBody = JSON.parse(requestBody);
+        } catch {
+          setResponse(
+            JSON.stringify(
+              {
+                error: "Invalid JSON in request body",
+              },
+              null,
+              2
+            )
+          );
+
+          return;
+        }
+
+        options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(parsedBody),
+        };
+      }
+
+      // PUT and DELETE will be added later
+      if (method === "PUT" || method === "DELETE") {
+        setResponse(
+          `${method} integration will be added in the next step.`
+        );
+        return;
+      }
+
+      const apiResponse = await fetch(url, options);
 
       const data = await apiResponse.json();
 
