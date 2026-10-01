@@ -1,0 +1,13 @@
+{
+  "name": "lab3-lab5",
+  "version": "1.0.0",
+  "description": "Lab 3 and Lab 5 - HTTP Server and CRUD Routes",
+  "main": "httpServer.js",
+  "scripts": {
+    "start": "node httpServer.js"
+  },
+  "keywords": [],
+  "author": "Alok Sharan",
+  "license": "ISC",
+  "type": "commonjs"
+}
