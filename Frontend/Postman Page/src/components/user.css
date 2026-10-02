@@ -1,0 +1,70 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #f4f6f8;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-content {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dashboard-header p {
+  color: #666;
+}
+
+.signout-button,
+.update-button,
+.delete-button {
+  border: none;
+  padding: 9px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signout-button {
+  background: #222;
+  color: white;
+}
+
+.update-button {
+  background: #2563eb;
+  color: white;
+}
+
+.delete-button {
+  background: #dc2626;
+  color: white;
+}
+
+.users-table-wrapper {
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.users-table th {
+  background: #f3f4f6;
+}
