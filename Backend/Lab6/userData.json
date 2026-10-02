@@ -2,16 +2,16 @@
   {
     "id": 1,
     "name": "Alok Sharan",
-    "age": 19
+    "email": "alok@example.com"
   },
   {
     "id": 2,
     "name": "Aman",
-    "age": 20
+    "email": "aman@example.com"
   },
   {
     "id": 3,
     "name": "Rahul",
-    "age": 21
+    "email": "rahul@example.com"
   }
 ]
